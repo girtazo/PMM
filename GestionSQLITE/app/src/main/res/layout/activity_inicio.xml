@@ -1,0 +1,37 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:paddingLeft="80dp"
+    android:paddingRight="80dp"
+    android:paddingTop="150dp"
+    android:layout_centerInParent="true"
+    android:orientation="vertical">
+    <EditText
+        android:id="@+id/incusuario"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/EditTextUser" />
+    <EditText
+        android:id="@+id/incpassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/EditTextPassword" />
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/btnInicio"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:text="@string/btnLogin" />
+        <Button
+            android:id="@+id/btnRegistrar"
+            android:layout_width="114dp"
+            android:layout_height="60dp"
+            android:layout_gravity="right"
+            android:text="@string/btnRegister" />
+    </LinearLayout>
+
+</LinearLayout>
