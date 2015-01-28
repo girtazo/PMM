@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">ComunicacionEntreActivities</string>
+    <string name="actividad1">pantalla1</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_pantalla2">Pantalla2</string>
+    <string name="title_activity_pantalla3">Pantalla3</string>
+
+</resources>
