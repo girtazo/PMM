@@ -33,7 +33,6 @@ public class inicio extends ActionBarActivity {
         SQLiteDatabase conexion = database.getWritableDatabase();
 
         // Obtenemos conexion
-        conexion.execSQL("INSERT INTO usuario ( login, password, nombre, apellidos, telefono) VALUES ( 'david', 'g2dsg15', 'david','navarro',9552155)");
 
         conexion.close();
 
@@ -53,6 +52,8 @@ public class inicio extends ActionBarActivity {
             @Override
             public void onClick(View v) {
 
+                Boolean login = false;
+
                 EditText usuario = (EditText)findViewById(R.id.incusuario);
                 EditText password = (EditText)findViewById(R.id.incpassword);
 
@@ -65,15 +66,31 @@ public class inicio extends ActionBarActivity {
 
                     Cursor cursor = conexion.query("usuario",campos,"login=?",busqueda,null,null,null);
 
+
                     if(cursor.moveToFirst()){
 
                         do{
-
                             showToast(cursor.getString(0));
                             showToast(cursor.getString(1));
+
+                            if( cursor.getString(0).equalsIgnoreCase(usuario.getText().toString()) && cursor.getString(1).equalsIgnoreCase(password.getText().toString())){
+
+
+                                login = true;
+                                break;
+                            }
                         } while (cursor.moveToNext());
                     }
                     conexion.close();
+                }
+
+                if(login){
+
+                    Intent administrar = new Intent(inicio.this,admin_user.class);
+                    Bundle datos = new Bundle();
+
+                    administrar.putExtras(datos);
+                    startActivity(administrar);
                 }
             }
         });

@@ -1,9 +1,12 @@
 package davidnavarronavarro_developer.gestionsqlite;
 
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Spinner;
 
 
 public class admin_user extends ActionBarActivity {
@@ -14,7 +17,33 @@ public class admin_user extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_user);
 
+        Usuario [] usuarios;
 
+        DB database = new DB(this, "gestor", null, 1);
+
+        SQLiteDatabase conexion = database.getWritableDatabase();
+        // Comprobar conexion
+        if (conexion!=null) {
+
+            String[] campos = new String []{ "login","password","nombre","apellidos","telefono" };
+
+            Cursor cursor = conexion.query("usuario",campos,null,null,null,null,null);
+            usuarios = new Usuario[cursor.getCount()];
+            int c = 0;
+            if(cursor.moveToFirst()){
+
+                do{
+
+                    usuarios [c] = new Usuario(cursor.getString(0),cursor.getString(1),cursor.getString(2),cursor.getString(3),cursor.getInt(4));
+                    c++;
+                } while (cursor.moveToNext());
+            }
+            conexion.close();
+
+            final Spinner spi = (Spinner) findViewById(R.id.usuarios);
+            arrayAdapterUsuario adap= new arrayAdapterUsuario(this,usuarios);
+            spi.setAdapter(adap);
+        }
     }
 
 
