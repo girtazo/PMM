@@ -41,7 +41,7 @@ public class EleccionCreacion extends Activity {
         // Establecer vista
         setContentView(R.layout.activity_eleccion_creacion);
 
-        /*// Recoger Interfaz
+        // Recoger Interfaz
         this.spinnerFormas = (Spinner) findViewById(R.id.forma);
         this.btnDibujar = (Button) findViewById(R.id.btnDibujar);
         this.recuadro =  (Dibujo)findViewById(R.id.dibujo);
