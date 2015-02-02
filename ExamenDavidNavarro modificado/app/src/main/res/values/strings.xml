@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">ExamenDavidNavarro</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_mostrarzona">mostrarzona</string>
+    <string name="title_activity_dibujo">Azafata</string>
+
+</resources>
